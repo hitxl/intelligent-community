@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>update_carfield_rental_information</class>
+ <widget class="QWidget" name="update_carfield_rental_information">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>533</width>
+    <height>279</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton {
+    background-color: #337AB7;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 25px 40px; /* 大幅增加内边距 */
+    font-size: 32px; /* 超大幅放大字体 */
+    min-height: 90px; /* 大幅增加按钮高度 */
+    min-width: 240px; /* 大幅增加按钮宽度 */
+    transition: all 0.3s ease;
+}
+
+/* 按钮交互效果 */
+QPushButton:hover {
+    background-color: #286090;
+    box-shadow: 0 5px 15px rgba(40, 96, 144, 0.3);
+}
+
+QPushButton:pressed {
+    background-color: #1F4E79;
+    transform: translateY(3px);
+}
+
+/* 主内容区容器 */
+QStackedWidget {
+    border: 1px solid #B9D4FF;
+    border-radius: 12px;
+    margin: 40px; /* 大幅增加外边距 */
+    padding: 45px; /* 大幅增加内边距 */
+    background-color: white;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* 输入控件 - 超大尺寸 */
+QLineEdit, QComboBox, QTextEdit {
+    border: 1px solid #99C5FF;
+    border-radius: 12px;
+    padding: 25px 30px; /* 大幅增加内边距 */
+    background-color: white;
+    font-size: 32px; /* 超大幅放大字体 */
+    min-height: 90px; /* 大幅增加高度 */
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 输入控件交互效果 */
+QLineEdit:focus, QComboBox:focus, QTextEdit:focus {
+    border-color: #337AB7;
+    box-shadow: 0 0 0 6px rgba(51, 122, 183, 0.2);
+}
+
+/* 表格控件 - 超大尺寸 */
+QTableView {
+    background-color: white;
+    alternate-background-color: #E6F2FF;
+    border: 1px solid #B9D4FF;
+    border-radius: 12px;
+    padding: 20px; /* 大幅增加内边距 */
+    gridline-color: #D0E8FF;
+    font-size: 28px; /* 超大幅放大字体 */
+}
+
+/* 表格头部样式 */
+QHeaderView::section {
+    background-color: #E6F2FF;
+    color: #23395B;
+    padding: 25px; /* 大幅增加内边距 */
+    border: 1px solid #D0E8FF;
+    font-weight: bold;
+    font-size: 28px; /* 超大幅放大字体 */
+}
+
+/* 表格行高增加 */
+QTableView::row {
+    height: 80px; /* 大幅增加行高 */
+}
+
+/* 标签页控件 - 超大尺寸 */
+QTabBar::tab {
+    background-color: #E6F2FF;
+    color: #4A6FA5;
+    padding: 25px 45px; /* 大幅增加内边距 */
+    border-radius: 12px 12px 0 0;
+    margin-right: 12px;
+    font-size: 28px; /* 超大幅放大字体 */
+    min-width: 220px; /* 大幅增加标签宽度 */
+}
+
+QTabBar::tab:selected {
+    background-color: white;
+    color: #2A85FF;
+    font-weight: bold;
+}
+
+QTabWidget::pane {
+    border: 1px solid #B9D4FF;
+    border-radius: 0 12px 12px 12px;
+    padding: 40px; /* 大幅增加内边距 */
+    background-color: white;
+}
+
+/* 分组框 - 超大尺寸 */
+QGroupBox {
+    border: 1px solid #B9D4FF;
+    border-radius: 12px;
+    margin-top: 35px; /* 大幅增加上边距 */
+    padding: 35px; /* 大幅增加内边距 */
+    font-weight: bold;
+    color: #2A85FF;
+    font-size: 32px; /* 超大幅放大字体 */
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    padding: 0 20px;
+    top: -20px;
+    left: 40px;
+    background-color: white;
+}
+
+/* 标签样式 - 超大尺寸字体 */
+QLabel {
+    font-size: 32px; /* 超大幅放大标签字体 */
+    color: #23395B;
+    padding: 12px 0; /* 大幅增加上下间距 */
+}
+
+/* 特殊标签（如标题） */
+QLabel#title {
+    font-size: 42px; /* 超大幅放大标题字体 */
+    font-weight: bold;
+    color: #2A85FF;
+    margin-bottom: 35px;
+}
+
+/* 进度条样式 - 超大尺寸 */
+QProgressBar {
+    border: 1px solid #B9D4FF;
+    border-radius: 12px;
+    text-align: center;
+    height: 45px; /* 大幅增加高度 */
+    font-size: 28px; /* 超大幅放大字体 */
+}
+
+QProgressBar::chunk {
+    background-color: #2A85FF;
+    border-radius: 11px;
+}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="4" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="font">
+      <font>
+       <family>Agency FB</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>修改合同结束时间</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="contract_fee_lineEdit">
+     <property name="font">
+      <font>
+       <family>Agency FB</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0" colspan="2">
+    <widget class="QPushButton" name="pushButton">
+     <property name="font">
+      <font>
+       <family>Agency FB</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>修改</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QComboBox" name="comboBox">
+     <property name="font">
+      <font>
+       <family>Agency FB</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <item>
+      <property name="text">
+       <string>unpaid</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>paid</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QDateEdit" name="contract_enddateEdit">
+     <property name="font">
+      <font>
+       <family>Agency FB</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="date">
+      <date>
+       <year>2025</year>
+       <month>7</month>
+       <day>16</day>
+      </date>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <family>Agency FB</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>修改合同付款状态</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label_3">
+     <property name="font">
+      <font>
+       <family>Agency FB</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>修改合同金额</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_4">
+     <property name="font">
+      <font>
+       <family>Agency FB</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>请输入你要修改的合同编号</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLineEdit" name="lineEdit"/>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,1475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Property_Manager</class>
+ <widget class="QMainWindow" name="Property_Manager">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>973</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow#Property_Manager {
+    background-color: #E6F2FF; 
+    min-width: 0;
+    min-height: 0;
+    max-width: 16777215;
+    max-height: 16777215;
+}
+
+QWidget#centralwidget {
+    background-color: #E6F2FF; 
+    padding: 10px;
+    min-width: 0;
+    min-height: 0;
+    max-width: 16777215;
+    max-height: 16777215;
+}
+
+/* 左侧工具栏 */
+QWidget#tool {
+    background-color: #4080FF; 
+    border-radius: 10px 0 0 10px;
+    min-width: 225px; 
+    max-width: 225px;
+    padding: 15px 0;
+    box-shadow: 2px 0 10px rgba(64, 128, 255, 0.2);
+}
+
+/* 工具按钮 */
+QWidget#tool QToolButton {
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-family: &quot;微软雅黑&quot;;
+    font-size: 24pt;
+    min-height: 80px;
+    width: 215px;
+    text-align: left;
+    padding-left: 35px;
+    icon-size: 28px;
+    icon-text-spacing: 15px;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+QWidget#tool QToolButton:hover:!checked {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding-left: 38px;
+}
+
+QWidget#tool QToolButton:checked {
+    background-color: white;
+    color: #4080FF;
+    font-weight: bold;
+    padding-left: 32px;
+}
+
+/* 标题标签 */
+QLabel[name=&quot;ti&quot;] {
+    color: #165DFF;
+    font-family: &quot;微软雅黑&quot;;
+    font-size: 18pt;
+    font-weight: bold;
+    padding: 15px 0 20px 10px;
+    border-bottom: 1px solid #C9E0FF;
+}
+
+QLabel[name=&quot;lb&quot;] {
+    color: #333;
+    font-family: &quot;微软雅黑&quot;;
+    font-size: 13pt;
+    padding: 8px 0;
+}
+
+/* 按钮 */
+QPushButton[name=&quot;pu&quot;] {
+    background-color: #4080FF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-family: &quot;微软雅黑&quot;;
+    font-size: 13pt;
+    min-height: 0;
+    min-width: 0;
+    margin: 0 5px;
+    transition: all 0.2s;
+}
+
+QPushButton[name=&quot;pu&quot;]:hover {
+    background-color: #165DFF;
+    box-shadow: 0 3px 8px rgba(64, 128, 255, 0.3);
+}
+
+QPushButton[name=&quot;pu&quot;]:pressed {
+    background-color: #0E42D2;
+    transform: translateY(1px);
+}
+
+/* 次要按钮 */
+QPushButton[name=&quot;pu&quot;][text=&quot;查询&quot;],
+QPushButton[name=&quot;pu&quot;][text=&quot;刷新&quot;],
+QPushButton[name=&quot;pu&quot;][text=&quot;搜索&quot;] {
+    background-color: white;
+    color: #4080FF;
+    border: 1px solid #C9E0FF;
+}
+
+QPushButton[name=&quot;pu&quot;][text=&quot;查询&quot;]:hover,
+QPushButton[name=&quot;pu&quot;][text=&quot;刷新&quot;]:hover,
+QPushButton[name=&quot;pu&quot;][text=&quot;搜索&quot;]:hover {
+    background-color: #F0F7FF;
+    border-color: #A8D0FF;
+}
+
+/* 输入框 */
+QLineEdit[name=&quot;le&quot;] {
+    border: 1px solid #B9D4FF;
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-family: &quot;微软雅黑&quot;;
+    font-size: 13pt;
+    min-height: 0;
+    min-width: 0;
+    background-color: white;
+}
+
+QLineEdit[name=&quot;le&quot;]:focus {
+    border-color: #4080FF;
+    box-shadow: 0 0 0 3px rgba(64, 128, 255, 0.2);
+}
+
+/* 下拉框 */
+QComboBox {
+    border: 1px solid #B9D4FF;
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-family: &quot;微软雅黑&quot;;
+    font-size: 13pt;
+    min-height: 0;
+    background-color: white;
+}
+
+/* 表格 */
+QTableView {
+    border: 1px solid #C9E0FF;
+    border-radius: 8px;
+    background-color: white;
+    font-family: &quot;微软雅黑&quot;;
+    font-size: 12pt;
+    min-width: 0;
+    min-height: 0;
+    gridline-color: #F0F7FF;
+}
+
+QTableView::item {
+    padding: 15px 12px;
+    min-height: 0;
+    border-bottom: 1px solid #F0F7FF;
+}
+
+QTableView::item:selected {
+    background-color: #E8F0FE;
+    color: #4080FF;
+}
+
+QHeaderView::section {
+    background-color: #F0F7FF;
+    color: #4080FF;
+    font-weight: bold;
+    font-size: 13pt;
+    padding: 15px 12px;
+    border-bottom: 2px solid #C9E0FF;
+    min-height: 0;
+}
+
+/* 内容区容器 */
+QStackedWidget {
+    background-color: white;
+    border-radius: 0 10px 10px 0;
+    padding: 20px;
+    margin: 5px 5px 5px 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 功能区容器 */
+QWidget[name=&quot;bg&quot;] {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+}
+
+
+    
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>20</width>
+     <height>20</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,0">
+      <item>
+       <widget class="QWidget" name="tool" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>225</width>
+          <height>2000</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_6">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item row="0" column="0">
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QToolButton" name="toolButton_5">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>220</width>
+               <height>80</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>220</width>
+               <height>3000</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>员工管理</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>:/resource/1.svg</normaloff>:/resource/1.svg</iconset>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <property name="toolButtonStyle">
+              <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">buttonGroup</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="toolButton_10">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>220</width>
+               <height>80</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>220</width>
+               <height>3000</height>
+              </size>
+             </property>
+             <property name="sizeIncrement">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>请假审批</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>:/resource/4.svg</normaloff>:/resource/4.svg</iconset>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="toolButtonStyle">
+              <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">buttonGroup</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="toolButton_11">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>220</width>
+               <height>80</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>220</width>
+               <height>3000</height>
+              </size>
+             </property>
+             <property name="sizeIncrement">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>系统设置</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>:/resource/5.svg</normaloff>:/resource/5.svg</iconset>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="toolButtonStyle">
+              <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">buttonGroup</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="toolButton_15">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>220</width>
+               <height>80</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>社区公告</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">buttonGroup</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="toolButton_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>数据统计</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">buttonGroup</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QToolButton" name="toolButton">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>220</width>
+               <height>80</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>220</width>
+               <height>30000</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>退出登录</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>:/resource/9.svg</normaloff>:/resource/9.svg</iconset>
+             </property>
+             <property name="toolButtonStyle">
+              <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QStackedWidget" name="stackedWidget">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="currentIndex">
+         <number>2</number>
+        </property>
+        <widget class="QWidget" name="first">
+         <property name="name" stdset="0">
+          <string>bg</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_11">
+          <item row="0" column="0">
+           <widget class="QWidget" name="widget_5" native="true">
+            <property name="font">
+             <font>
+              <family>黑体</family>
+              <pointsize>36</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">/* 系统标题：一级强调 */
+#label_title {
+    font-family: &quot;Microsoft YaHei&quot;, sans-serif; /* 优先用微软雅黑，无则用系统 sans-serif */
+    font-size: 28px; /* 较大字号突出标题 */
+    font-weight: bold; /* 加粗 */
+    color: #409EFF; /* 浅蓝色，呼应左侧导航栏 */
+    text-align: center; /* 水平居中 */
+    padding-top: 50px; /* 与顶部间距，可按需调整 */
+}
+
+/* 身份提示：二级强调（红色突出身份） */
+#label_identity {
+    font-family: &quot;Microsoft YaHei&quot;, sans-serif;
+    font-size: 22px; /* 稍大字号 */
+    color: #F56C6C; /* 红色，强调身份 */
+    text-align: center;
+    padding-top: 30px; /* 与标题间距 */
+}
+
+/* 英文欢迎：补充说明（弱化处理） */
+#label_welcome_en {
+    font-family: &quot;Microsoft YaHei&quot;, sans-serif;
+    font-size: 18px; /* 小字号 */
+    color: #666666; /* 深灰色，弱化但可读 */
+    text-align: center;
+    padding-top: 40px; /* 与身份提示间距 */
+}
+
+/* 英文身份：补充说明（弱化处理） */
+#label_identity_en {
+    font-family: &quot;Microsoft YaHei&quot;, sans-serif;
+    font-size: 16px; /* 小字号 */
+    color: #666666; /* 深灰色 */
+    text-align: center;
+    padding-top: 10px; /* 与上方英文间距 */
+    padding-bottom: 50px; /* 与底部间距，平衡界面 */
+}</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_10">
+             <item row="1" column="1">
+              <widget class="QLabel" name="label_title">
+               <property name="palette">
+                <palette>
+                 <active>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>0</red>
+                     <green>170</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="Text">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>64</red>
+                     <green>158</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="ButtonText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>64</red>
+                     <green>158</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="128">
+                     <red>64</red>
+                     <green>158</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </active>
+                 <inactive>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>0</red>
+                     <green>170</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="Text">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>64</red>
+                     <green>158</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="ButtonText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>64</red>
+                     <green>158</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="128">
+                     <red>64</red>
+                     <green>158</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </inactive>
+                 <disabled>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>120</red>
+                     <green>120</green>
+                     <blue>120</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="Text">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>64</red>
+                     <green>158</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="ButtonText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>64</red>
+                     <green>158</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="128">
+                     <red>64</red>
+                     <green>158</green>
+                     <blue>255</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </disabled>
+                </palette>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei</family>
+                 <pointsize>-1</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>    欢迎使用智慧小区管理系统！</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLabel" name="label_identity">
+               <property name="palette">
+                <palette>
+                 <active>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>255</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="Text">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>245</red>
+                     <green>108</green>
+                     <blue>108</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="ButtonText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>245</red>
+                     <green>108</green>
+                     <blue>108</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="128">
+                     <red>245</red>
+                     <green>108</green>
+                     <blue>108</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </active>
+                 <inactive>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>255</red>
+                     <green>0</green>
+                     <blue>0</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="Text">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>245</red>
+                     <green>108</green>
+                     <blue>108</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="ButtonText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>245</red>
+                     <green>108</green>
+                     <blue>108</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="128">
+                     <red>245</red>
+                     <green>108</green>
+                     <blue>108</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </inactive>
+                 <disabled>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>120</red>
+                     <green>120</green>
+                     <blue>120</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="Text">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>245</red>
+                     <green>108</green>
+                     <blue>108</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="ButtonText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>245</red>
+                     <green>108</green>
+                     <blue>108</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="PlaceholderText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="128">
+                     <red>245</red>
+                     <green>108</green>
+                     <blue>108</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </disabled>
+                </palette>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei</family>
+                 <pointsize>-1</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>您当前的身份为：物业管理员</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLabel" name="label_welcome_en">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei</family>
+                 <pointsize>-1</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Welcome to Intelligent Community Management System</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLabel" name="label_identity_en">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei</family>
+                 <pointsize>-1</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Your Current Identity is: Property Administrator</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="qingjia">
+         <property name="name" stdset="0">
+          <string>bg</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_6">
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>18</pointsize>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>智慧小区管理系统/请假审核</string>
+            </property>
+            <property name="name" stdset="0">
+             <string>ti</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QWidget" name="widget_4" native="true">
+            <property name="font">
+             <font>
+              <family>Agency FB</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_3">
+             <item row="0" column="6">
+              <spacer name="horizontalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>97</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="0" column="3">
+              <widget class="QPushButton" name="pushButton_7">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>微软雅黑</family>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>同意</string>
+               </property>
+               <property name="name" stdset="0">
+                <string>pu</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="5">
+              <widget class="QPushButton" name="pushButton_9">
+               <property name="font">
+                <font>
+                 <family>微软雅黑</family>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>刷新</string>
+               </property>
+               <property name="name" stdset="0">
+                <string>pu</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_8">
+               <property name="font">
+                <font>
+                 <family>微软雅黑</family>
+                 <pointsize>13</pointsize>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>搜索</string>
+               </property>
+               <property name="name" stdset="0">
+                <string>lb</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="lineEdit_3">
+               <property name="name" stdset="0">
+                <string>le</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="4">
+              <widget class="QPushButton" name="pushButton_8">
+               <property name="font">
+                <font>
+                 <family>微软雅黑</family>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>驳回</string>
+               </property>
+               <property name="name" stdset="0">
+                <string>pu</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QPushButton" name="pushButton_14">
+               <property name="text">
+                <string>搜索</string>
+               </property>
+               <property name="name" stdset="0">
+                <string>pu</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QTableView" name="tableView_3"/>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="shuju">
+         <widget class="QTableView" name="tableView_2">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>400</y>
+            <width>256</width>
+            <height>192</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="user">
+         <property name="name" stdset="0">
+          <string>bg</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_8">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_7">
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>18</pointsize>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>智慧小区管理系统/系统设置</string>
+            </property>
+            <property name="name" stdset="0">
+             <string>ti</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QWidget" name="widget_3" native="true">
+            <layout class="QGridLayout" name="gridLayout_5">
+             <item row="0" column="0">
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <item>
+                <widget class="QLabel" name="label">
+                 <property name="font">
+                  <font>
+                   <family>微软雅黑</family>
+                   <pointsize>13</pointsize>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>搜索</string>
+                 </property>
+                 <property name="name" stdset="0">
+                  <string>lb</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEdit_4">
+                 <property name="placeholderText">
+                  <string>请输入您要查询的用户ID</string>
+                 </property>
+                 <property name="name" stdset="0">
+                  <string>le</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_5">
+                 <property name="font">
+                  <font>
+                   <family>微软雅黑</family>
+                   <pointsize>13</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>查询</string>
+                 </property>
+                 <property name="name" stdset="0">
+                  <string>pu</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_6">
+                 <property name="text">
+                  <string>添加用户</string>
+                 </property>
+                 <property name="name" stdset="0">
+                  <string>pu</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_10">
+                 <property name="text">
+                  <string>修改用户信息</string>
+                 </property>
+                 <property name="name" stdset="0">
+                  <string>pu</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_17">
+                 <property name="text">
+                  <string>完成编辑</string>
+                 </property>
+                 <property name="name" stdset="0">
+                  <string>pu</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_11">
+                 <property name="text">
+                  <string>删除用户</string>
+                 </property>
+                 <property name="name" stdset="0">
+                  <string>pu</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_16">
+                 <property name="text">
+                  <string>刷新</string>
+                 </property>
+                 <property name="name" stdset="0">
+                  <string>pu</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_4">
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_4">
+                 <property name="text">
+                  <string>清空数据</string>
+                 </property>
+                 <property name="name" stdset="0">
+                  <string>pu</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QTableView" name="tableView_4"/>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="gonggao">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_9">
+          <item row="2" column="0">
+           <widget class="QTableWidget" name="tableWidget">
+            <property name="minimumSize">
+             <size>
+              <width>2</width>
+              <height>2</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QPushButton" name="pushButton_18">
+              <property name="text">
+               <string>发布公告</string>
+              </property>
+              <property name="name" stdset="0">
+               <string>pu</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_19">
+              <property name="text">
+               <string>删除公告</string>
+              </property>
+              <property name="name" stdset="0">
+               <string>pu</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item row="1" column="0">
+           <widget class="QTableView" name="tableView_5"/>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="stuff">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="name" stdset="0">
+          <string>bg</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_7">
+          <item row="1" column="0">
+           <widget class="QWidget" name="widget" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <layout class="QGridLayout" name="gridLayout">
+             <item row="0" column="5">
+              <widget class="QPushButton" name="pushButton_2">
+               <property name="font">
+                <font>
+                 <family>微软雅黑</family>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>修改员工信息</string>
+               </property>
+               <property name="name" stdset="0">
+                <string>pu</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="9">
+              <widget class="QPushButton" name="pushButton_13">
+               <property name="text">
+                <string>刷新</string>
+               </property>
+               <property name="name" stdset="0">
+                <string>pu</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_2">
+               <property name="font">
+                <font>
+                 <family>微软雅黑</family>
+                 <pointsize>13</pointsize>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>搜索</string>
+               </property>
+               <property name="name" stdset="0">
+                <string>lb</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="lineEdit">
+               <property name="placeholderText">
+                <string>请输入您要查询的员工ID</string>
+               </property>
+               <property name="name" stdset="0">
+                <string>le</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="10">
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="0" column="7">
+              <widget class="QPushButton" name="pushButton_3">
+               <property name="font">
+                <font>
+                 <family>微软雅黑</family>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>删除员工</string>
+               </property>
+               <property name="name" stdset="0">
+                <string>pu</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QPushButton" name="pushButton_12">
+               <property name="text">
+                <string>查询</string>
+               </property>
+               <property name="name" stdset="0">
+                <string>pu</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3">
+              <widget class="QPushButton" name="pushButton">
+               <property name="font">
+                <font>
+                 <family>微软雅黑</family>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>添加员工</string>
+               </property>
+               <property name="name" stdset="0">
+                <string>pu</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="6">
+              <widget class="QPushButton" name="pushButton_EditFinish">
+               <property name="text">
+                <string>完成编辑</string>
+               </property>
+               <property name="name" stdset="0">
+                <string>pu</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QTableView" name="tableView"/>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>18</pointsize>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>智慧小区管理系统/员工管理</string>
+            </property>
+            <property name="name" stdset="0">
+             <string>ti</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>18</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
+</ui>

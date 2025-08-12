@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Parking_Apply</class>
+ <widget class="QMainWindow" name="Parking_Apply">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>388</width>
+    <height>317</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 主窗口样式 */
+QMainWindow#Parking_Apply {
+    background-color: #f0f7ff; /* 浅蓝色背景，与业主系统统一 */
+    border: 1px solid #d6eaff;
+}
+
+QWidget#centralwidget {
+    padding: 15px; /* 增加内边距，避免控件贴边 */
+}
+
+/* 标题样式（申请车位）- 精致化处理 */
+QLabel#label {
+    font-family: &quot;Microsoft YaHei UI&quot;, &quot;Arial&quot;, sans-serif;
+    font-size: 26pt;
+    font-weight: 600;
+    color: #165dff; /* 主蓝色标题 */
+    margin: 10px 0 20px 0; /* 增加上下间距，突出标题 */
+    text-shadow: 0 1px 2px rgba(22, 93, 255, 0.05);
+}
+
+/* 标签样式（申请人姓名、车位ID等） */
+QLabel#label_2, QLabel#label_3, QLabel#label_4, QLabel#label_5, QLabel#label_6 {
+    font-family: &quot;Microsoft YaHei UI&quot;, &quot;Arial&quot;, sans-serif;
+    font-size: 20pt;
+    color: #333;
+    min-width: 160px; /* 固定标签宽度，对齐更整齐 */
+    padding: 8px 0; /* 增加内边距，增大占位 */
+}
+
+/* 输入框样式（姓名、车位ID、车牌号） */
+QLineEdit {
+    font-family: &quot;Microsoft YaHei UI&quot;, sans-serif;
+    font-size: 19pt; /* 比标签稍小，形成层次 */
+    border: 1px solid #b9d4ff;
+    border-radius: 6px;
+    padding: 10px 15px; /* 增加内边距，增大输入框 */
+    background-color: white;
+    min-height: 50px; /* 增大高度，充实空间 */
+    min-width: 220px; /* 确保输入区域充足 */
+}
+
+QLineEdit:focus {
+    border-color: #69b1ff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(105, 177, 255, 0.2); /* 焦点光晕效果 */
+}
+
+/* 日期选择框样式 */
+QDateEdit {
+    font-family: &quot;Microsoft YaHei UI&quot;, sans-serif;
+    font-size: 18pt;
+    border: 1px solid #b9d4ff;
+    border-radius: 6px;
+    padding: 10px 15px;
+    background-color: white;
+    min-height: 50px;
+    min-width: 220px;
+}
+
+QDateEdit:focus {
+    border-color: #69b1ff;
+    box-shadow: 0 0 0 3px rgba(105, 177, 255, 0.2);
+}
+
+/* 按钮样式（确认申请、取消）- 蓝色调统一 */
+QPushButton {
+    font-family: &quot;Microsoft YaHei UI&quot;, &quot;Arial&quot;, sans-serif;
+    font-size: 20pt;
+    font-weight: 500;
+    border-radius: 6px;
+    min-height: 60px; /* 增大按钮高度 */
+    min-width: 160px; /* 比原150px稍大，更充实 */
+    padding: 8px 0;
+    transition: all 0.2s;
+    border: none;
+}
+
+/* 确认申请按钮（主蓝色） */
+QPushButton#pushButton {
+    background-color: #165dff;
+    color: white;
+}
+
+QPushButton#pushButton:hover {
+    background-color: #4080ff;
+    box-shadow: 0 3px 8px rgba(22, 93, 255, 0.25);
+}
+
+QPushButton#pushButton:pressed {
+    background-color: #0e42d2;
+    transform: translateY(1px);
+}
+
+/* 取消按钮（浅蓝辅助色） */
+QPushButton#pushButton_2 {
+    background-color: #e8f3ff;
+    color: #165dff;
+    border: 1px solid #c9e0ff;
+}
+
+QPushButton#pushButton_2:hover {
+    background-color: #d6eaff;
+    box-shadow: 0 3px 8px rgba(22, 93, 255, 0.15);
+}
+
+QPushButton#pushButton_2:pressed {
+    background-color: #c9e0ff;
+    transform: translateY(1px);
+}
+
+/* 布局间距优化 - 减少空白，充实界面 */
+QHBoxLayout, QVBoxLayout {
+    spacing: 15px; /* 统一布局间距 */
+}
+
+/* 调整 spacer 尺寸 - 避免过度留白 */
+QSpacerItem[orientation=&quot;Qt::Horizontal&quot;] {
+    width: 20px !important; /* 水平间距从40px减小到20px，减少空白 */
+}
+
+QSpacerItem#verticalSpacer_2 {
+    height: 80px !important; /* 大幅减少底部空白，原216px压缩为80px */
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" rowspan="2" colspan="2">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="styleSheet">
+           <string notr="true">font: 24pt &quot;Arial&quot;;</string>
+          </property>
+          <property name="text">
+           <string>申请车位</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_8">
+        <item>
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="styleSheet">
+             <string notr="true">font: 20pt &quot;Arial&quot;;</string>
+            </property>
+            <property name="text">
+             <string>申请人姓名：</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_8">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="styleSheet">
+             <string notr="true">font: 20pt &quot;Arial&quot;;</string>
+            </property>
+            <property name="text">
+             <string>车位ID:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>252</width>
+              <height>72</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <item>
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="styleSheet">
+             <string notr="true">font: 20pt &quot;Arial&quot;;</string>
+            </property>
+            <property name="text">
+             <string>车牌号:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_10">
+        <item>
+         <spacer name="horizontalSpacer_11">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="styleSheet">
+           <string notr="true">font: 20pt &quot;Arial&quot;;</string>
+          </property>
+          <property name="text">
+           <string>起始日期</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDateEdit" name="dateEdit">
+          <property name="dateTime">
+           <datetime>
+            <hour>16</hour>
+            <minute>0</minute>
+            <second>0</second>
+            <year>2025</year>
+            <month>6</month>
+            <day>30</day>
+           </datetime>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_12">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_11">
+        <item>
+         <spacer name="horizontalSpacer_13">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_6">
+          <property name="styleSheet">
+           <string notr="true">font: 20pt &quot;Arial&quot;;</string>
+          </property>
+          <property name="text">
+           <string>截止日期</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDateEdit" name="dateEdit_2">
+          <property name="dateTime">
+           <datetime>
+            <hour>16</hour>
+            <minute>0</minute>
+            <second>0</second>
+            <year>2025</year>
+            <month>8</month>
+            <day>31</day>
+           </datetime>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_14">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>30</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Orientation::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>216</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_9">
+        <item>
+         <spacer name="horizontalSpacer_9">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QPushButton" name="pushButton">
+            <property name="minimumSize">
+             <size>
+              <width>160</width>
+              <height>76</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 20pt &quot;Arial&quot;;</string>
+            </property>
+            <property name="text">
+             <string>确认申请</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_2">
+            <property name="minimumSize">
+             <size>
+              <width>162</width>
+              <height>78</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 20pt &quot;Arial&quot;;</string>
+            </property>
+            <property name="text">
+             <string>取消</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_10">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>388</width>
+     <height>18</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

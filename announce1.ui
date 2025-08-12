@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>announce1</class>
+ <widget class="QMainWindow" name="announce1">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #e6f2ff; /* 浅蓝色背景 */
+    border-radius: 12px;
+}
+
+QLabel {
+    color: #004080; /* 深蓝色文本 */
+    font-size: 24px;
+    font-weight: bold;
+    qproperty-alignment: 'AlignCenter';
+}
+
+QTextEdit {
+    border: 2px solid #99ccff;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 16px;
+    padding: 10px;
+}
+
+QTextEdit:focus {
+    border-color: #0078d7;
+    selection-background-color: #cce5ff;
+}
+
+QPushButton {
+    background-color: #0078d7; /* 蓝色按钮 */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px; /* 减小字体大小 */
+    font-weight: 500;
+    min-width: 100px; /* 减小最小宽度 */
+    min-height: 32px; /* 减小最小高度 */
+    padding: 6px 12px; /* 减小内边距 */
+}
+
+QPushButton:hover {
+    background-color: #005a9e;
+}
+
+QPushButton:pressed {
+    background-color: #004080;
+    padding-top: 8px;
+    padding-bottom: 4px;
+}
+    </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>526</x>
+      <y>340</y>
+      <width>152</width>
+      <height>56</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 10pt &quot;Microsoft YaHei UI&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>确认发布</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>80</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>发布公告</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>140</y>
+      <width>351</width>
+      <height>151</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>18</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

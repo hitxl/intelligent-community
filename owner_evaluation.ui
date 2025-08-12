@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>owner_evaluation</class>
+ <widget class="QWidget" name="owner_evaluation">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 主窗口 */
+QWidget#owner_evaluation {
+    background-color: #f0f7ff;
+    border-radius: 12px;
+    border: 1px solid #d6eaff;
+    padding: 5px;
+}
+
+/* 主内容区域 */
+QWidget#widget {
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #d6eaff;
+    padding: 20px;
+    box-shadow: 0 3px 8px rgba(100, 149, 237, 0.1);
+}
+
+/* 标题标签（精致化处理） */
+QLabel#label {
+    font-family: &quot;Microsoft YaHei UI&quot;, &quot;Segoe UI&quot;, sans-serif;
+    font-size: 22pt;
+    font-weight: 600; /* 半粗体更精致 */
+    color: #165dff; /* 主蓝色 */
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e8f3ff;
+    text-shadow: 0 1px 2px rgba(22, 93, 255, 0.05);
+}
+
+/* 文本编辑框 */
+QTextEdit#textEdit {
+    border: 1px solid #b9d4ff;
+    border-radius: 6px;
+    padding: 12px;
+    font-family: &quot;Microsoft YaHei UI&quot;, sans-serif;
+    font-size: 13pt;
+    background-color: white;
+    selection-background-color: #e6f0ff;
+    selection-color: #165dff;
+    transition: all 0.2s;
+}
+
+QTextEdit#textEdit:focus {
+    border-color: #69b1ff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(105, 177, 255, 0.2);
+}
+
+/* 按钮基础样式（蓝色调统一） */
+QPushButton {
+    font-family: &quot;Microsoft YaHei UI&quot;, sans-serif;
+    font-size: 13pt;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 9px 20px;
+    min-width: 110px;
+    transition: all 0.2s;
+    border: none;
+}
+
+/* 确认按钮（主蓝色） */
+QPushButton#pushButton {
+    background-color: #165dff;
+    color: white;
+}
+
+QPushButton#pushButton:hover {
+    background-color: #4080ff;
+    box-shadow: 0 2px 6px rgba(22, 93, 255, 0.25);
+}
+
+QPushButton#pushButton:pressed {
+    background-color: #0e42d2;
+    transform: translateY(1px);
+}
+
+/* 取消按钮（浅蓝辅助色） */
+QPushButton#pushButton_2 {
+    background-color: #e8f3ff;
+    color: #165dff;
+    border: 1px solid #c9e0ff;
+}
+
+QPushButton#pushButton_2:hover {
+    background-color: #d6eaff;
+    box-shadow: 0 2px 6px rgba(22, 93, 255, 0.15);
+}
+
+QPushButton#pushButton_2:pressed {
+    background-color: #c9e0ff;
+    transform: translateY(1px);
+}
+
+/* 按钮布局 */
+QHBoxLayout#horizontalLayout {
+    spacing: 15px;
+    margin-top: 20px;
+    justify-content: center; /* 按钮居中更精致 */
+}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QWidget" name="widget" native="true">
+     <property name="styleSheet">
+      <string notr="true">border-color: rgb(255, 255, 255);</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="2" column="1">
+       <widget class="QTextEdit" name="textEdit"/>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="label">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>业主评价</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignHCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="text">
+           <string>取消</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="text">
+           <string>确认评价</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

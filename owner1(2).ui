@@ -1,0 +1,1289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Owner</class>
+ <widget class="QWidget" name="Owner">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1277</width>
+    <height>1357</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 主窗口样式 - 统一浅蓝色背景 */
+QWidget#Owner {
+    background-color: #f0f7ff;
+    padding: 15px;
+}
+
+/* 左侧侧边栏容器 - 降低饱和度的蓝色 */
+QWidget#widget {
+    background-color: #4080ff; /* 降低饱和度的蓝色 */
+    border-radius: 8px 0 0 8px;
+    padding: 20px 0;
+    box-shadow: 2px 0 8px rgba(64, 128, 255, 0.15); /* 调整阴影颜色与侧边栏匹配 */
+}
+QWidget#widget {
+    background-color: #2A85FF;
+    border-radius: 12px 0 0 12px;
+    padding: 30px 0;
+    min-width: 220px; 
+    max-width: 220px;
+}
+
+/* 侧边栏工具按钮 - 与侧边栏同宽且保持圆角 */
+QWidget#widget QToolButton {
+    border: none;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.9);
+    min-height: 80px;
+    width: 150px;
+    font-family: &quot;微软雅黑&quot;, &quot;Microsoft YaHei UI&quot;;
+    font-size: 24px;
+    text-align: left;
+    padding-left: 25px;
+    margin: 3px 5px;
+    border-radius: 6px;
+    transition: all 0.2s;
+min-width: 180px; 
+    max-width: 180px;
+}
+
+QWidget#widget QToolButton::icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    filter: brightness(100);
+}
+
+QWidget#widget QToolButton:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding-left: 27px;
+}
+
+QWidget#widget QToolButton:checked {
+    background-color: white;
+    color: #4080ff; /* 选中状态文字颜色与侧边栏匹配 */
+    font-weight: 500;
+    padding-left: 23px;
+}
+
+/* 按钮样式 - 统一蓝色主题 */
+QPushButton {
+    background-color: #165dff; /* 保持原主按钮颜色不变，突出重点操作 */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 22px;
+    font-family: &quot;微软雅黑&quot;, &quot;Microsoft YaHei UI&quot;;
+    font-size: 17px;
+    min-height: 50px;
+    min-width: 110px;
+    transition: all 0.2s;
+}
+
+QPushButton:hover {
+    background-color: #4080ff; /* 悬停时与侧边栏颜色一致 */
+    box-shadow: 0 3px 8px rgba(22, 93, 255, 0.25);
+}
+
+QPushButton:pressed {
+    background-color: #0e42d2;
+    transform: translateY(1px);
+}
+
+/* 次要按钮 - 浅蓝色背景 */
+QPushButton#pushButton_2, QPushButton#pushButton_4, QPushButton#pushButton_6 {
+    background-color: #e8f3ff;
+    color: #4080ff; /* 次要按钮文字颜色与侧边栏匹配 */
+    border: 1px solid #c9e0ff;
+}
+
+QPushButton#pushButton_2:hover, QPushButton#pushButton_4:hover, QPushButton#pushButton_6:hover {
+    background-color: #d6eaff;
+    box-shadow: 0 3px 8px rgba(64, 128, 255, 0.15);
+}
+
+/* 标签样式 - 层次分明 */
+QLabel {
+    font-family: &quot;微软雅黑&quot;, &quot;Microsoft YaHei UI&quot;;
+    font-size: 17px;
+    color: #333;
+    padding: 8px 0;
+}
+
+QLabel[text=&quot;故障报修&quot;], QLabel[text=&quot;维修进度查询&quot;], QLabel[text=&quot;维修记录与评价&quot;],
+QLabel[text=&quot;我的车位&quot;], QLabel[text=&quot;申请车位&quot;], QLabel[text=&quot;空闲车位查询&quot;],
+QLabel[text=&quot;车辆识别&quot;], QLabel[text=&quot;业主id&quot;], QLabel[text=&quot;故障反馈&quot;],
+QLabel[text=&quot;维修记录&quot;], QLabel[text=&quot;业主姓名&quot;], QLabel[text=&quot;车位申请记录&quot;] {
+    font-weight: bold;
+    color: #4080ff; /* 标题文字颜色与侧边栏匹配 */
+    font-size: 19px;
+    margin: 10px 0;
+}
+
+/* 输入框样式 - 蓝色边框与交互 */
+QLineEdit {
+    font-family: &quot;微软雅黑&quot;, &quot;Microsoft YaHei UI&quot;;
+    font-size: 17px;
+    border: 1px solid #b9d4ff;
+    border-radius: 6px;
+    padding: 12px 15px;
+    background-color: white;
+    min-height: 50px;
+    min-width: 200px;
+}
+
+QLineEdit:focus {
+    border-color: #69b1ff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(105, 177, 255, 0.2);
+}
+
+/* 文本编辑框 - 与输入框统一风格 */
+QTextEdit {
+    font-family: &quot;微软雅黑&quot;, &quot;Microsoft YaHei UI&quot;;
+    font-size: 17px;
+    border: 1px solid #b9d4ff;
+    border-radius: 6px;
+    padding: 12px;
+    background-color: white;
+    min-height: 150px;
+}
+
+QTextEdit:focus {
+    border-color: #69b1ff;
+    box-shadow: 0 0 0 3px rgba(105, 177, 255, 0.2);
+}
+
+/* 表格视图 - 浅蓝色背景与蓝色边框 */
+QTableView {
+    gridline-color: #e0e0e0;
+    border: 1px solid #b9d4ff;
+    border-radius: 6px;
+    font-family: &quot;微软雅黑&quot;, &quot;Microsoft YaHei UI&quot;;
+    font-size: 17px;
+    background-color: white;
+    min-height: 280px;
+    min-width: 550px;
+    padding: 6px;
+}
+
+QTableView::item {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    min-height: 50px;
+}
+
+QTableView::item:selected {
+    background-color: #e8f0fe;
+    color: #4080ff; /* 表格选中状态文字颜色与侧边栏匹配 */
+    font-weight: 500;
+}
+
+QHeaderView::section {
+    background-color: #f0f7ff;
+    border-bottom: 1px solid #b9d4ff;
+    padding: 15px 16px;
+    font-weight: bold;
+    color: #4080ff; /* 表头文字颜色与侧边栏匹配 */
+    font-size: 18px;
+    min-height: 55px;
+    text-align: left;
+}
+
+/* 标签页样式 - 与整体背景协调 */
+QTabWidget::pane {
+    border: 1px solid #b9d4ff;
+    border-radius: 6px;
+    background-color: white;
+    margin-top: 5px;
+    padding: 18px;
+}
+
+QTabBar::tab {
+    background-color: #f0f7ff;
+    border: none;
+    border-radius: 6px 6px 0 0;
+    padding: 14px 22px;
+    font-family: &quot;微软雅黑&quot;, &quot;Microsoft YaHei UI&quot;;
+    font-size: 17px;
+    margin-right: 5px;
+    min-width: 130px;
+    min-height: 45px;
+}
+
+QTabBar::tab:selected {
+    background-color: white;
+    border-top: 3px solid #4080ff; /* 选中标签页边框颜色与侧边栏匹配 */
+}
+
+QTabBar::tab:hover:!selected {
+    background-color: #e6f2ff;
+}
+
+/* 滚动条样式 - 蓝色主题 */
+QScrollBar:vertical {
+    width: 14px;
+    margin: 6px 0;
+}
+
+QScrollBar:horizontal {
+    height: 14px;
+    margin: 0 6px;
+}
+
+QScrollBar::handle {
+    background-color: #b9d4ff;
+    border-radius: 7px;
+    min-height: 35px;
+    min-width: 35px;
+}
+
+QScrollBar::handle:hover {
+    background-color: #69b1ff;
+}
+
+/* 布局间距 - 优化空白区域 */
+QGridLayout, QHBoxLayout, QVBoxLayout {
+    spacing: 15px;
+    margin: 12px;
+}
+
+/* 进度指示器图标 - 增大尺寸 */
+QLabel[styleSheet*=&quot;border-image: url(:/qt6/diamond2.png)&quot;] {
+    width: 28px;
+    height: 28px;
+}
+
+QLabel[styleSheet*=&quot;border-image: url(:/qt6/arrow.png)&quot;],
+QLabel[styleSheet*=&quot;border-image: url(:/qt6/rightarrow.png)&quot;] {
+    font-size: 20px;
+}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QWidget" name="widget" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>220</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>220</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_6">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item row="0" column="0">
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QToolButton" name="toolButton_4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>215</width>
+            <height>86</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>185</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="mouseTracking">
+           <bool>true</bool>
+          </property>
+          <property name="tabletTracking">
+           <bool>false</bool>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LayoutDirection::LeftToRight</enum>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>缴费系统</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>:/02.png</normaloff>:/02.png</iconset>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonStyle::ToolButtonTextOnly</enum>
+          </property>
+          <property name="autoRaise">
+           <bool>false</bool>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">buttonGroup</string>
+          </attribute>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_6">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>215</width>
+            <height>86</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>185</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>报修系统</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>:/03.png</normaloff>:/03.png</iconset>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonStyle::ToolButtonTextOnly</enum>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">buttonGroup</string>
+          </attribute>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_5">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>215</width>
+            <height>86</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>185</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>车位管理</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>:/01.png</normaloff>:/01.png</iconset>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonStyle::ToolButtonTextOnly</enum>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">buttonGroup</string>
+          </attribute>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_7">
+          <property name="minimumSize">
+           <size>
+            <width>215</width>
+            <height>86</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>社区公告</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">buttonGroup</string>
+          </attribute>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton">
+          <property name="minimumSize">
+           <size>
+            <width>215</width>
+            <height>86</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>退出登录</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QStackedWidget" name="stackedWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="none_page_2">
+      <layout class="QGridLayout" name="gridLayout_14">
+       <item row="0" column="0">
+        <widget class="QWidget" name="widget_5" native="true">
+         <property name="font">
+          <font>
+           <family>黑体</family>
+           <pointsize>36</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* 系统标题：一级强调 */
+#label_title {
+    font-family: &quot;Microsoft YaHei&quot;, sans-serif; /* 优先用微软雅黑，无则用系统 sans-serif */
+    font-size: 28px; /* 较大字号突出标题 */
+    font-weight: bold; /* 加粗 */
+    color: #409EFF; /* 浅蓝色，呼应左侧导航栏 */
+    text-align: center; /* 水平居中 */
+    padding-top: 50px; /* 与顶部间距，可按需调整 */
+}
+
+/* 身份提示：二级强调（红色突出身份） */
+#label_identity {
+    font-family: &quot;Microsoft YaHei&quot;, sans-serif;
+    font-size: 22px; /* 稍大字号 */
+    color: #F56C6C; /* 红色，强调身份 */
+    text-align: center;
+    padding-top: 30px; /* 与标题间距 */
+}
+
+/* 英文欢迎：补充说明（弱化处理） */
+#label_welcome_en {
+    font-family: &quot;Microsoft YaHei&quot;, sans-serif;
+    font-size: 18px; /* 小字号 */
+    color: #666666; /* 深灰色，弱化但可读 */
+    text-align: center;
+    padding-top: 40px; /* 与身份提示间距 */
+}
+
+/* 英文身份：补充说明（弱化处理） */
+#label_identity_en {
+    font-family: &quot;Microsoft YaHei&quot;, sans-serif;
+    font-size: 16px; /* 小字号 */
+    color: #666666; /* 深灰色 */
+    text-align: center;
+    padding-top: 10px; /* 与上方英文间距 */
+    padding-bottom: 50px; /* 与底部间距，平衡界面 */
+}</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_13">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_title">
+            <property name="palette">
+             <palette>
+              <active>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>0</red>
+                  <green>170</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>64</red>
+                  <green>158</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>64</red>
+                  <green>158</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
+                  <red>64</red>
+                  <green>158</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </active>
+              <inactive>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>0</red>
+                  <green>170</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>64</red>
+                  <green>158</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>64</red>
+                  <green>158</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
+                  <red>64</red>
+                  <green>158</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </inactive>
+              <disabled>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>120</red>
+                  <green>120</green>
+                  <blue>120</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>64</red>
+                  <green>158</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>64</red>
+                  <green>158</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
+                  <red>64</red>
+                  <green>158</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </disabled>
+             </palette>
+            </property>
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei</family>
+              <pointsize>-1</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>    欢迎使用智慧小区管理系统！</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_identity">
+            <property name="palette">
+             <palette>
+              <active>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>245</red>
+                  <green>108</green>
+                  <blue>108</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>245</red>
+                  <green>108</green>
+                  <blue>108</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
+                  <red>245</red>
+                  <green>108</green>
+                  <blue>108</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </active>
+              <inactive>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>245</red>
+                  <green>108</green>
+                  <blue>108</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>245</red>
+                  <green>108</green>
+                  <blue>108</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
+                  <red>245</red>
+                  <green>108</green>
+                  <blue>108</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </inactive>
+              <disabled>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>120</red>
+                  <green>120</green>
+                  <blue>120</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>245</red>
+                  <green>108</green>
+                  <blue>108</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>245</red>
+                  <green>108</green>
+                  <blue>108</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
+                  <red>245</red>
+                  <green>108</green>
+                  <blue>108</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </disabled>
+             </palette>
+            </property>
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>您当前的身份为：业主</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_welcome_en">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Welcome to Intelligent Community Management System</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_identity_en">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Your Current Identity is: Owner</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="owner_repair_2">
+      <layout class="QGridLayout" name="gridLayout_4">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QTabWidget" name="tabWidget_3">
+         <property name="currentIndex">
+          <number>1</number>
+         </property>
+         <widget class="QWidget" name="tab_8">
+          <attribute name="title">
+           <string>故障报修</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_8">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_7">
+             <item>
+              <widget class="QLabel" name="label">
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+    
+    font-family: &quot;Microsoft YaHei&quot;;
+    font-size: 16px;
+	font: 700 16pt &quot;Microsoft YaHei UI&quot;;
+}</string>
+               </property>
+               <property name="text">
+                <string>业主id</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit"/>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Orientation::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    
+    font-family: &quot;Microsoft YaHei&quot;;
+    font-size: 16px;
+	font: 700 16pt &quot;Microsoft YaHei UI&quot;;
+}</string>
+             </property>
+             <property name="text">
+              <string>故障反馈</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QTextEdit" name="textEdit"/>
+           </item>
+           <item row="3" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QLabel" name="label_4">
+               <property name="text">
+                <string>物业热线  xxxx-xxxxxx</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Orientation::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton">
+               <property name="text">
+                <string>确认反馈</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_9">
+          <attribute name="title">
+           <string>维修流程图</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_12">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="resource/picture.qrc">:/7f3c2ada0bf4cbcf30fe1b3a22f870f.png</pixmap>
+             </property>
+             <property name="scaledContents">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_10">
+          <attribute name="title">
+           <string>维修记录与评价</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_9">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <spacer name="horizontalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_3">
+               <property name="text">
+                <string>评价</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <item>
+              <widget class="QLabel" name="label_19">
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+    
+    font-family: &quot;Microsoft YaHei&quot;;
+    font-size: 16px;
+	font: 700 16pt &quot;Microsoft YaHei UI&quot;;
+}</string>
+               </property>
+               <property name="text">
+                <string>维修记录</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="2" column="0">
+            <widget class="QTableView" name="tableView"/>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pay_page_2">
+      <layout class="QGridLayout" name="gridLayout_10">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item row="0" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QPushButton" name="payButton_2">
+           <property name="text">
+            <string>去缴费</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <widget class="QTableView" name="tableView_3">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="carfied_page_2">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QTabWidget" name="tabWidget_4">
+         <property name="currentIndex">
+          <number>2</number>
+         </property>
+         <widget class="QWidget" name="tab_11">
+          <attribute name="title">
+           <string>我的车位</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_5"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QTableView" name="My_carfiled_tableView">
+             <property name="sortingEnabled">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_12">
+          <attribute name="title">
+           <string>申请车位</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="0">
+            <widget class="QPushButton" name="checkbutton_2">
+             <property name="text">
+              <string>申请车位</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <widget class="QLabel" name="label_20">
+               <property name="text">
+                <string>车位申请记录</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_7">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_6">
+               <property name="text">
+                <string>刷新</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="2" column="0">
+            <widget class="QTableView" name="carfieldapply_tableView"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_13">
+          <attribute name="title">
+           <string>空闲车位查询</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_7">
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QTableView" name="carfieldcheck_tableView"/>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="announce">
+      <layout class="QGridLayout" name="gridLayout_11">
+       <item row="0" column="0">
+        <widget class="QTableView" name="tableView_2"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resource/picture.qrc"/>
+ </resources>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
+</ui>

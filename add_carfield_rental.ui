@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>add_carfield_rental</class>
+ <widget class="QWidget" name="add_carfield_rental">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>860</width>
+    <height>1000</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>微软雅黑</family>
+    <pointsize>-1</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 基础样式 - 填充布局+超大字体 */
+QWidget#add_carfield_rental {
+    background-color: #f0f2f5;
+    min-width: 800px;  /* 基础宽度，适配屏幕 */
+    min-height: 1000px; /* 基础高度 */
+      /* 内边距填充布局 */
+}
+
+/* 全局字体超大化 */
+QWidget {
+    font-family: &quot;微软雅黑&quot;;
+    font-size: 22px;   /* 超大字体基准 */
+    color: #2d3436;
+}
+
+/* 标签样式 - 加宽+居中对齐 */
+QLabel {
+    font-size: 24px;   /* 标签字体更大 */
+    font-weight: bold;
+    color: #2c3e50;
+    min-width: 200px;  /* 加宽标签确保内容不换行 */
+    padding: 15px 10px;/* 填充空间 */
+    text-align: right; /* 右对齐，与输入框呼应 */
+}
+
+/* 输入控件 - 超大尺寸+填充效果 */
+QLineEdit, QDateEdit, QComboBox {
+    border: 2px solid #b2bec3;
+    border-radius: 8px;
+   
+    font-size: 22px;
+    min-height: 60px;   /* 超大输入框高度 */
+    min-width: 400px;   /* 超大输入框宽度 */
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* 输入控件聚焦效果 */
+QLineEdit:focus, QDateEdit:focus, QComboBox:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 4px rgba(52,152,219,0.2);
+    outline: none;
+}
+
+/* 下拉框特殊样式 */
+QComboBox {
+    padding-right: 60px; /* 预留下拉箭头空间 */
+}
+QComboBox::drop-down {
+    width: 50px;
+    border-left: 2px solid #b2bec3;
+}
+QComboBox::down-arrow {
+    image: url(:/icons/arrow_down.png); /* 可替换为实际箭头图标 */
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+}
+QComboBox QAbstractItemView {
+    font-size: 20px;
+    padding: 15px;
+    min-height: 50px;
+    border-radius: 8px;
+}
+
+/* 日期选择器样式 */
+QDateEdit {
+    padding-right: 60px; /* 预留日历图标空间 */
+}
+QDateEdit::drop-down {
+    width: 50px;
+}
+QDateEdit::down-arrow {
+    image: url(:/icons/calendar.png); /* 可替换为实际日历图标 */
+    width: 24px;
+    height: 24px;
+}
+
+/* 按钮样式 - 超大尺寸+突出显示 */
+QPushButton {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 20px 40px; /* 超大按钮填充 */
+    font-size: 24px;
+    font-weight: bold;
+    min-height: 70px;   /* 超大按钮高度 */
+    min-width: 250px;   /* 超大按钮宽度 */
+    margin-top: 40px;   /* 与上方控件拉开距离，填充布局 */
+    transition: all 0.3s ease;
+}
+QPushButton:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(52,152,219,0.3);
+}
+QPushButton:pressed {
+    background-color: #21618c;
+    transform: translateY(0);
+}
+
+/* 布局调整 - 增加行间距填充布局 */
+QVBoxLayout, QHBoxLayout, QGridLayout {
+    spacing: 25px; /* 加大控件间距，填充布局空间 */
+}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="1">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QLineEdit" name="space_idlineEdit_3"/>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="location_lineEdit"/>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="ownername_lineEdit_2"/>
+     </item>
+     <item>
+      <widget class="QDateEdit" name="start_dateEdit">
+       <property name="date">
+        <date>
+         <year>2025</year>
+         <month>1</month>
+         <day>1</day>
+        </date>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDateEdit" name="end_dateEdit">
+       <property name="minimumDate">
+        <date>
+         <year>2000</year>
+         <month>9</month>
+         <day>14</day>
+        </date>
+       </property>
+       <property name="date">
+        <date>
+         <year>2025</year>
+         <month>7</month>
+         <day>19</day>
+        </date>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="fee_lineEdit"/>
+     </item>
+     <item>
+      <widget class="QComboBox" name="payment_status_comboBox">
+       <item>
+        <property name="text">
+         <string>paid</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>unpaid</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>车位编号</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_7">
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>车位位置</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>车位租借人姓名</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>开始租借时间</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_4">
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>租借到期时间</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_5">
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>合同总金额</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_6">
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>付款状态</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QPushButton" name="submit_pushButton">
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>-1</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>提交合同信息</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

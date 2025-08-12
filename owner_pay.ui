@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Owner_Pay</class>
+ <widget class="QMainWindow" name="Owner_Pay">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>399</width>
+    <height>346</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* ============== 全局基础样式 ============== */
+QMainWindow, 
+QWidget#centralwidget { 
+    /* 浅蓝背景色，柔和不刺眼 */
+    background-color: #E0F7FA; 
+    /* 统一全局字体（确保系统有该字体，或替换为 Arial 等通用字体） */
+    font-family: &quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif; 
+}
+
+/* ============== 标题标签样式 ============== */
+QLabel#label { 
+    /* 大尺寸标题，突出层级 */
+    font-size: 40px; 
+    font-weight: bold;
+    /* 深灰色标题，增强可读性 */
+    color: #263238; 
+    /* 上下留白，让标题不拥挤 */
+    padding: 20px 0; 
+}
+
+/* ============== 表单标签样式 ============== */
+QLabel#label_2 { 
+    /* 稍大字体，适配大尺寸界面 */
+    font-size: 18px; 
+    /* 标签与输入框对齐，视觉更统一 */
+    alignment: AlignRight; 
+    /* 右侧留白，与输入框保持间距 */
+    padding-right: 10px; 
+    color: #455A64; /* 深灰色文字，避免过淡 */
+}
+
+/* ============== 输入框样式 ============== */
+QLineEdit { 
+    /* 输入框高度适配大尺寸 */
+    height: 40px; 
+    font-size: 16px;
+    /* 浅灰色边框 + 圆角，柔和风格 */
+    border: 1px solid #B0BEC5; 
+    border-radius: 6px; 
+    /* 内部留白，输入体验更好 */
+    padding: 0 10px; 
+    background-color: #FFFFFF; /* 白色背景，区分输入区域 */
+}
+
+/* 输入框聚焦时高亮 */
+QLineEdit:focus { 
+    border: 1px solid #81D4FA; /* 浅蓝色高亮边框 */
+    /* 可选：阴影增强聚焦感 */
+    /* box-shadow: 0 0 8px rgba(129, 212, 250, 0.5); */
+}
+
+/* ============== 按钮通用样式 ============== */
+QPushButton { 
+    /* 按钮基础高度，适配大尺寸 */
+    height: 48px; 
+    font-size: 18px;
+    color: #FFFFFF; /* 白色文字 */
+    border: none; /* 去掉默认边框 */
+    border-radius: 8px; /* 大圆角，更柔和 */
+    /* 过渡动画，点击更丝滑 */
+    transition: all 0.3s ease; 
+    cursor: pointer; /* 鼠标悬浮变手型 */
+}
+
+/* 线上缴费按钮 - 浅蓝色主色 */
+QPushButton#pushButton_2 { 
+    background-color: #81D4FA; 
+}
+
+/* 取消按钮 - 浅灰色辅助色 */
+QPushButton#pushButton_3 { 
+    background-color: #CFD8DC; 
+    color: #616161; /* 深灰色文字 */
+}
+
+/* 按钮悬浮效果 */
+QPushButton:hover { 
+    opacity: 0.9; /* 透明度降低，模拟按下反馈 */
+}
+
+/* 按钮按下效果 */
+QPushButton:pressed { 
+    transform: scale(0.98); /* 轻微缩小，增强点击感 */
+}
+
+/* ============== 布局间距优化 ============== */
+QGridLayout#gridLayout,
+QVBoxLayout#verticalLayout,
+QHBoxLayout#horizontalLayout { 
+    /* 全局布局间距，让控件不拥挤 */
+    spacing: 20px; 
+    /* 边缘留白，适配大尺寸 */
+    margin: 20px; 
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+    
+    font-family: &quot;Microsoft YaHei&quot;;
+    font-size: 30px;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>请选择缴费方式</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>业主id</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>线上缴费</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>取消</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>399</width>
+     <height>18</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

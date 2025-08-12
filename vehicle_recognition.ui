@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Vehicle_Recognition</class>
+ <widget class="QWidget" name="Vehicle_Recognition">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>809</width>
+    <height>640</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton[name=&quot;pu&quot;] {
+    /* 主按钮 */
+    background-color: #4080FF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-family: &quot;微软雅黑&quot;;
+    font-size: 13pt;
+    min-height: 55px; /* 高按钮 */
+    min-width: 120px; /* 宽按钮 */
+    margin: 0 5px;
+    transition: all 0.2s;
+}
+
+QPushButton[name=&quot;pu&quot;]:hover {
+    background-color: #165DFF;
+    box-shadow: 0 3px 8px rgba(64, 128, 255, 0.3);
+}
+
+QPushButton[name=&quot;pu&quot;]:pressed {
+    background-color: #0E42D2;
+    transform: translateY(1px);
+}
+</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="0">
+      <widget class="QLabel" name="resultLabel">
+       <property name="styleSheet">
+        <string notr="true">QLabel{font:50px}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QPushButton" name="selectImageBtn">
+       <property name="text">
+        <string>选择图片</string>
+       </property>
+       <property name="name" stdset="0">
+        <string>pu</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
